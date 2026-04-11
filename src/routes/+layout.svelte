@@ -3,8 +3,15 @@
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import { Search } from "lucide-svelte";
 	import { searchState } from "$lib/search.svelte";
+	// @ts-ignore
+	import { pwaInfo } from 'virtual:pwa-info';
+
 	let { children } = $props();
 </script>
+
+<svelte:head>
+	{@html pwaInfo ? pwaInfo.webManifest.linkTag : ''}
+</svelte:head>
 
 <div
 	class="min-h-screen bg-background text-foreground transition-colors duration-300"

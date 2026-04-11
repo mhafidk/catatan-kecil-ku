@@ -10,6 +10,9 @@ export default defineConfig({
 		SvelteKitPWA({
 			registerType: 'autoUpdate',
 			injectRegister: 'auto',
+			devOptions: {
+				enabled: true
+			},
 			manifest: {
 				name: 'Catatan Kecil Ku',
 				short_name: 'Catatan',
