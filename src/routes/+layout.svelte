@@ -45,7 +45,7 @@
 	<div
 		class="w-full border-b border-zinc-200 bg-white/50 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/50"
 	>
-		<div class="mx-auto max-w-5xl px-4 pt-2 pb-3 sm:px-6 lg:px-8">
+		<div class="mx-auto max-w-5xl px-4 pt-2 pb-2.5 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between">
 				<a
 					href="/about"
@@ -63,7 +63,7 @@
 		{@render children()}
 	</main>
 
-	<footer class="mt-auto border-t border-zinc-200 py-8 dark:border-zinc-800">
+	<footer class="mt-20 border-t border-zinc-200 py-8 dark:border-zinc-800">
 		<div
 			class="mx-auto max-w-5xl px-4 text-center text-zinc-500 dark:text-zinc-400"
 		>
