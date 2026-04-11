@@ -1,6 +1,8 @@
 <script lang="ts">
 	import './layout.css';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import { Search } from 'lucide-svelte';
+	import { searchState } from '$lib/search.svelte';
 	let { children } = $props();
 </script>
 
@@ -12,7 +14,19 @@
 					Catatan Kecil Ku
 				</a>
 			</div>
-			<div class="flex items-center gap-4">
+			<div class="flex items-center gap-2 sm:gap-4">
+				<a href="/about" class="hidden sm:block text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50">About</a>
+				<div class="relative w-full max-w-[140px] sm:max-w-xs">
+					<Search
+						class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500"
+					/>
+					<input
+						type="text"
+						placeholder="Cari judul..."
+						bind:value={searchState.query}
+						class="w-full rounded-full border border-zinc-300 bg-white py-1.5 pl-9 pr-4 text-sm focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900"
+					/>
+				</div>
 				<ThemeToggle />
 			</div>
 		</div>

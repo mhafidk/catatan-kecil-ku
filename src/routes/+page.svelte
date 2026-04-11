@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { Search } from "lucide-svelte";
+	import { searchState } from "$lib/search.svelte";
 	let { data } = $props();
 
-	let searchQuery = $state("");
 	let selectedTags = $state<string[]>([]);
 
 	let allTags = $derived([
@@ -13,7 +12,7 @@
 		data.posts.filter((post: any) => {
 			const matchesSearch = post.title
 				.toLowerCase()
-				.includes(searchQuery.toLowerCase());
+				.includes(searchState.query.toLowerCase());
 			const matchesTags =
 				selectedTags.length === 0 ||
 				selectedTags.every((tag) => post.tags.includes(tag));
@@ -42,22 +41,7 @@
 		</p>
 	</header>
 
-	<div
-		class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-	>
-		<div class="relative w-full sm:max-w-xs">
-			<Search
-				class="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-500"
-			/>
-			<input
-				type="text"
-				placeholder="Cari judul..."
-				bind:value={searchQuery}
-				class="w-full rounded-full border border-zinc-300 bg-white py-2 pl-10 pr-4 text-sm focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900"
-			/>
-		</div>
-
-		<div class="flex flex-wrap gap-2">
+	<div class="flex flex-wrap gap-2">
 			{#each allTags as tag}
 				<button
 					onclick={() => toggleTag(tag)}
@@ -69,7 +53,6 @@
 					{tag}
 				</button>
 			{/each}
-		</div>
 	</div>
 
 	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
