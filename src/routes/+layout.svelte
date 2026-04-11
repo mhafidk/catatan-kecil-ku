@@ -63,11 +63,11 @@
 		{@render children()}
 	</main>
 
-	<footer class="mt-20 border-t border-zinc-200 py-8 dark:border-zinc-800">
+	<footer class="mt-20 border-t border-zinc-200 py-6 dark:border-zinc-800">
 		<div
 			class="mx-auto max-w-5xl px-4 text-center text-zinc-500 dark:text-zinc-400"
 		>
-			<p class="font-caveat text-xl">
+			<p class="font-sans text-sm">
 				&copy; {new Date().getFullYear()} Catatan Kecil Ku
 			</p>
 		</div>
