@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--font-sans: 'Noto Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-arabic: 'Noto Sans Arabic', sans-serif;
+	--font-caveat: 'Caveat', cursive;
+
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+}
+
+@layer base {
+	:root {
+		--background: #ffffff;
+		--foreground: #171717;
+	}
+
+	.dark {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+
+	body {
+		background-color: var(--background);
+		color: var(--foreground);
+		font-family: var(--font-sans);
+	}
+
+	[lang="ar"] {
+		font-family: var(--font-arabic);
+	}
+}
