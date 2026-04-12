@@ -88,6 +88,11 @@
 						>Dzikir</a
 					>
 					<a
+						href="/faq"
+						class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
+						>FAQ</a
+					>
+					<a
 						href="/about"
 						class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
 						>About</a
