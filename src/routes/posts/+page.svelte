@@ -5,7 +5,11 @@
 
 	let { data } = $props();
 
-	let tagFilter = $derived($page.url.searchParams.get("tag"));
+	let tagFilter = $state<string | null>(null);
+	
+	$effect(() => {
+		tagFilter = $page.url.searchParams.get("tag");
+	});
 
 	let filteredPosts = $derived(
 		data.posts.filter((post: any) => {
