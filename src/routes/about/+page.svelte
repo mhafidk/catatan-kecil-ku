@@ -5,17 +5,29 @@
 <div class="flex flex-col gap-8 grow">
 	<header class="text-center">
 		<h1 class="font-caveat text-5xl font-bold sm:text-6xl">About</h1>
-		<p class="mt-4 text-lime-600 dark:text-lime-400">
-			Sedikit tentang saya dan blog ini.
-		</p>
 	</header>
 
 	<article class="prose prose-zinc mx-auto dark:prose-invert">
+		<p>اَلسَلامُ عَلَيْكُم وَرَحْمَةُ اَللهِ وَبَرَكاتُهُ</p>
 		<p>
-			Selamat datang di Catatan Kecil Ku. Ini adalah tempat di mana saya membagikan hal-hal yang saya pelajari, baca, atau sekadar pemikiran-pemikiran kecil tentang berbagai topik.
+			Doa dan dzikir harus terus kita panjatkan kepada Allah عَزَّ
+			وَجَلَّ. Tapi banyak doa dan dzikir yang belum kita ketahui dan
+			hafal. Mungkin kita sering mencatat ataupun menyimpan doa dan dzikir
+			baik di buku, notes, ataupun social media. Tapi kadang kita lupa
+			ataupun sulit untuk membuka catatan kita saat dibutuhkan. Oleh
+			karena itu, saya membuat website ini agar kita dapat dengan mudah
+			mengakses doa dan dzikir kapanpun dan dimanapun.
 		</p>
 		<p>
-			Semoga Anda menemukan sesuatu yang bermanfaat!
+			Doa dan dzikir yang ada di website ini bersumber dari Al-Qur'an dan
+			Hadits. Jika terdapat kesalahan dalam penulisan lafadz, terjemahan,
+			atau sumbernya, silakan hubungi saya melalui email
+			<a
+				href="mailto:mhafidk@gmail.com"
+				class="text-lime-600 dark:text-lime-400">mhafidk@gmail.com</a
+			>.
 		</p>
+		<p>Semoga bermanfaat!</p>
+		<p>وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
 	</article>
 </div>
