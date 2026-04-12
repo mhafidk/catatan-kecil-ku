@@ -10,10 +10,10 @@ arabic: true
 اَلْحَمْدُ لِلَّهِ الَّذِيْ أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُوْرِ
 </div>
 
-<div class="text-center" style="margin-top: 2rem; margin-bottom: 2rem;">
+<div class="text-center" style="margin-top: 3rem; margin-bottom: 3rem;">
 "Segala puji bagi Allah, yang telah membangunkan kami setelah menidurkan kami dan kepada-Nya lah kami dibangkitkan."
 </div>
 
 <div class="text-center font-bold">
-(HR. Bukhari no. 6325)
+HR. Bukhari no. 6325
 </div>
