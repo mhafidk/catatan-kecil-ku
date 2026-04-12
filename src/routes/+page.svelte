@@ -1,6 +1,16 @@
 <script lang="ts">
 	import { searchState } from "$lib/search.svelte";
+	import { onMount } from "svelte";
+
 	let { data } = $props();
+
+	let randomPost = $state<any>(null);
+
+	onMount(() => {
+		if (data.posts.length > 0) {
+			randomPost = data.posts[Math.floor(Math.random() * data.posts.length)];
+		}
+	});
 
 	let selectedTags = $state<string[]>([]);
 
@@ -34,13 +44,37 @@
 </svelte:head>
 
 <div class="flex flex-col gap-8">
-	<header class="text-center">
-		<h1 class="font-caveat text-3xl font-bold sm:text-4xl">
+	<header class="flex flex-col mb-12">
+		<h1 class="font-caveat text-3xl font-bold sm:text-4xl text-center mb-8">
 			Doa Hari Ini!
 		</h1>
-		<p class="mt-4 text-zinc-700 dark:text-zinc-400">
-			Selamat datang di tempat saya berbagi ide.
-		</p>
+		{#if randomPost}
+			<div
+				class="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 mx-auto w-full"
+			>
+				<h2
+					class="mt-2 text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 text-center mb-12"
+				>
+					<a href="/post/{randomPost.slug}" class="hover:underline">
+						{randomPost.title}
+					</a>
+				</h2>
+				<div
+					class="prose prose-zinc prose-black dark:prose-invert prose-headings:font-bold prose-a:text-black dark:prose-a:text-white prose-pre:bg-zinc-900 dark:prose-pre:bg-zinc-800 max-w-none text-center"
+				>
+					{@html randomPost.content}
+				</div>
+				<div class="mt-6 flex flex-wrap gap-2 justify-center">
+					{#each randomPost.tags as tag}
+						<span
+							class="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-400"
+						>
+							{tag}
+						</span>
+					{/each}
+				</div>
+			</div>
+		{/if}
 	</header>
 
 	<div class="flex flex-wrap gap-2">
