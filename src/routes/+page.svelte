@@ -95,7 +95,7 @@
 		{/each}
 	</div>
 
-	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+	<div class="grid gap-6 sm:grid-cols-2">
 		{#if filteredPosts.length > 0}
 			{#each filteredPosts as post}
 				<article
@@ -114,28 +114,6 @@
 							<span class="relative z-10">{post.title}</span>
 						</a>
 					</h2>
-					<time
-						class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-lime-600 dark:text-lime-400"
-					>
-						<span
-							class="absolute inset-y-0 left-0 flex items-center"
-							aria-hidden="true"
-						>
-							<span
-								class="h-4 w-0.5 rounded-full bg-zinc-300 dark:bg-zinc-500"
-							></span>
-						</span>
-						{new Date(post.date).toLocaleDateString("id-ID", {
-							year: "numeric",
-							month: "long",
-							day: "numeric",
-						})}
-					</time>
-					<p
-						class="relative z-10 mt-2 text-sm text-lime-600 dark:text-lime-400"
-					>
-						{post.description}
-					</p>
 					<div class="relative z-10 mt-4 flex flex-wrap gap-2">
 						{#each post.tags as tag}
 							<span
@@ -144,25 +122,6 @@
 								{tag}
 							</span>
 						{/each}
-					</div>
-					<div
-						aria-hidden="true"
-						class="relative z-10 mt-4 flex items-center text-sm font-medium text-zinc-950 dark:text-white"
-					>
-						Baca selengkapnya
-						<svg
-							viewBox="0 0 16 16"
-							fill="none"
-							aria-hidden="true"
-							class="ml-1 h-4 w-4 stroke-current"
-						>
-							<path
-								d="M6.75 5.75 9.25 8l-2.5 2.25"
-								stroke-width="1.5"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							></path>
-						</svg>
 					</div>
 				</article>
 			{/each}
