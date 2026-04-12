@@ -16,6 +16,10 @@
 	});
 
 	let filteredPosts = $derived(data.posts.slice(0, 6));
+
+	let allTags = $derived([
+		...new Set(data.posts.flatMap((p: any) => p.tags)),
+	]);
 </script>
 
 <svelte:head>
@@ -85,6 +89,18 @@
 		</button>
 	</form>
 
+	<p class="text-center text-sm mt-4">Atau pilih berdasarkan tag:</p>
+	<div class="flex flex-wrap gap-2 justify-center mb-4">
+		{#each allTags as tag}
+			<a
+				href="/posts?tag={tag}"
+				class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-lime-600 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-lime-400 dark:hover:bg-zinc-700"
+			>
+				{tag}
+			</a>
+		{/each}
+	</div>
+
 	<div class="grid gap-6 sm:grid-cols-2">
 		{#if filteredPosts.length > 0}
 			{#each filteredPosts as post}
@@ -122,5 +138,14 @@
 				</p>
 			</div>
 		{/if}
+	</div>
+
+	<div class="mt-4 flex justify-center">
+		<a
+			href="/posts"
+			class="rounded bg-zinc-950 px-6 py-3 font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+		>
+			Lebih banyak lagi
+		</a>
 	</div>
 </div>

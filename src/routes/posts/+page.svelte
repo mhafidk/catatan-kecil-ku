@@ -21,8 +21,12 @@
 	let pageTitle = $derived(
 		tagFilter
 			? tagFilter.charAt(0).toUpperCase() + tagFilter.slice(1)
-			: "Semua Doa",
+			: "Doa & Dzikir",
 	);
+
+	let allTags = $derived([
+		...new Set(data.posts.flatMap((p: any) => p.tags)),
+	]);
 </script>
 
 <svelte:head>
@@ -55,6 +59,18 @@
 				<Search class="h-5 w-5" />
 			</button>
 		</form>
+
+		<p class="text-center text-sm mt-4">Atau pilih berdasarkan tag:</p>
+		<div class="flex flex-wrap gap-2 justify-center mb-4">
+			{#each allTags as tag}
+				<a
+					href="/posts?tag={tag}"
+					class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-lime-600 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-lime-400 dark:hover:bg-zinc-700"
+				>
+					{tag}
+				</a>
+			{/each}
+		</div>
 	</header>
 
 	<div class="grid gap-6 sm:grid-cols-2">
