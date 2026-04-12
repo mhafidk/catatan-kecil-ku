@@ -27,6 +27,24 @@
 	let allTags = $derived([
 		...new Set(data.posts.flatMap((p: any) => p.tags)),
 	]);
+
+	const POSTS_PER_PAGE = 10;
+	let currentPage = $state(1);
+
+	$effect(() => {
+		searchState.query;
+		tagFilter;
+		currentPage = 1;
+	});
+
+	let paginatedPosts = $derived(
+		filteredPosts.slice(
+			(currentPage - 1) * POSTS_PER_PAGE,
+			currentPage * POSTS_PER_PAGE
+		)
+	);
+
+	let totalPages = $derived(Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
 </script>
 
 <svelte:head>
@@ -74,8 +92,8 @@
 	</header>
 
 	<div class="grid gap-6 sm:grid-cols-2">
-		{#if filteredPosts.length > 0}
-			{#each filteredPosts as post}
+		{#if paginatedPosts.length > 0}
+			{#each paginatedPosts as post}
 				<article
 					class="group relative flex flex-col items-start rounded border border-zinc-200 p-6 transition-all hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:hover:border-zinc-700"
 				>
@@ -111,4 +129,46 @@
 			</div>
 		{/if}
 	</div>
+
+	{#if totalPages > 1}
+		<div class="mt-8 flex justify-center gap-2">
+			<button
+				disabled={currentPage === 1}
+				onclick={() => {
+					currentPage -= 1;
+					window.scrollTo(0, 0);
+				}}
+				class="rounded border border-zinc-200 px-4 py-2 text-sm transition-colors hover:bg-zinc-100 disabled:opacity-50 dark:border-zinc-800 dark:hover:bg-zinc-800"
+			>
+				Sebelumnya
+			</button>
+
+			<div class="flex items-center gap-1 sm:gap-2">
+				{#each Array.from({ length: totalPages }, (_, i) => i + 1) as pageNum}
+					<button
+						onclick={() => {
+							currentPage = pageNum;
+							window.scrollTo(0, 0);
+						}}
+						class="rounded px-3 py-2 text-sm transition-colors {currentPage === pageNum
+							? 'bg-lime-600 text-white hover:bg-lime-700 dark:bg-lime-600 dark:hover:bg-lime-700'
+							: 'hover:bg-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-800'}"
+					>
+						{pageNum}
+					</button>
+				{/each}
+			</div>
+
+			<button
+				disabled={currentPage === totalPages}
+				onclick={() => {
+					currentPage += 1;
+					window.scrollTo(0, 0);
+				}}
+				class="rounded border border-zinc-200 px-4 py-2 text-sm transition-colors hover:bg-zinc-100 disabled:opacity-50 dark:border-zinc-800 dark:hover:bg-zinc-800"
+			>
+				Selanjutnya
+			</button>
+		</div>
+	{/if}
 </div>
