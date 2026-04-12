@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { searchState } from "$lib/search.svelte";
+	import { goto } from "$app/navigation";
 	import { onMount } from "svelte";
+	import { Search } from "lucide-svelte";
 
 	let { data } = $props();
 
@@ -13,45 +15,21 @@
 		}
 	});
 
-	let selectedTags = $state<string[]>([]);
-
-	let allTags = $derived([
-		...new Set(data.posts.flatMap((p: any) => p.tags)),
-	]);
-
-	let filteredPosts = $derived(
-		data.posts.filter((post: any) => {
-			const matchesSearch = post.title
-				.toLowerCase()
-				.includes(searchState.query.toLowerCase());
-			const matchesTags =
-				selectedTags.length === 0 ||
-				selectedTags.every((tag) => post.tags.includes(tag));
-			return matchesSearch && matchesTags;
-		}),
-	);
-
-	function toggleTag(tag: string) {
-		if (selectedTags.includes(tag)) {
-			selectedTags = selectedTags.filter((t) => t !== tag);
-		} else {
-			selectedTags = [...selectedTags, tag];
-		}
-	}
+	let filteredPosts = $derived(data.posts.slice(0, 6));
 </script>
 
 <svelte:head>
 	<title>Home | Catatan Kecil Ku</title>
 </svelte:head>
 
-<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-6">
 	<header class="flex flex-col mb-12">
 		<h1 class="font-caveat text-3xl font-bold sm:text-4xl text-center mb-8">
 			Doa Hari Ini!
 		</h1>
 		{#if randomPost}
 			<div
-				class="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 mx-auto w-full"
+				class="rounded border border-zinc-200 p-6 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 mx-auto w-full"
 			>
 				<h2
 					class="mt-2 text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 text-center mb-12"
@@ -71,7 +49,7 @@
 				<div class="mt-6 flex flex-wrap gap-2 justify-center">
 					{#each randomPost.tags as tag}
 						<span
-							class="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-lime-600 dark:bg-zinc-800 dark:text-lime-400"
+							class="rounded bg-zinc-100 px-3 py-1 text-sm font-medium text-lime-600 dark:bg-zinc-800 dark:text-lime-400"
 						>
 							{tag}
 						</span>
@@ -81,25 +59,37 @@
 		{/if}
 	</header>
 
-	<div class="flex flex-wrap gap-2">
-		{#each allTags as tag}
-			<button
-				onclick={() => toggleTag(tag)}
-				class="rounded-full px-3 py-1 text-xs font-medium transition-colors
-          {selectedTags.includes(tag)
-					? 'bg-zinc-950 text-white dark:bg-white dark:text-zinc-900'
-					: 'bg-zinc-100 text-lime-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-lime-400 dark:hover:bg-zinc-700'}"
-			>
-				{tag}
-			</button>
-		{/each}
-	</div>
+	<h2 class="font-caveat text-3xl font-bold sm:text-4xl text-center">
+		Mau doa apa hari ini?
+	</h2>
+
+	<form
+		onsubmit={(e) => {
+			e.preventDefault();
+			goto("/posts");
+		}}
+		class="mb-1 relative w-full flex gap-2 mx-auto"
+	>
+		<input
+			type="text"
+			bind:value={searchState.query}
+			placeholder="Cari..."
+			class="w-full rounded border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-950 transition-colors focus:border-lime-600 focus:outline-none focus:ring-1 focus:ring-lime-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-lime-400 dark:focus:ring-lime-400"
+		/>
+		<button
+			type="submit"
+			aria-label="Cari"
+			class="flex items-center justify-center rounded bg-zinc-950 text-white px-4 transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+		>
+			<Search class="h-5 w-5" />
+		</button>
+	</form>
 
 	<div class="grid gap-6 sm:grid-cols-2">
 		{#if filteredPosts.length > 0}
 			{#each filteredPosts as post}
 				<article
-					class="group relative flex flex-col items-start rounded-2xl border border-zinc-200 p-6 transition-all hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:hover:border-zinc-700"
+					class="group relative flex flex-col items-start rounded border border-zinc-200 p-6 transition-all hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:hover:border-zinc-700"
 				>
 					<h2
 						class="text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100"
@@ -109,7 +99,7 @@
 							href="/post/{post.slug}"
 						>
 							<span
-								class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"
+								class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded"
 							></span>
 							<span class="relative z-10">{post.title}</span>
 						</a>
@@ -117,7 +107,7 @@
 					<div class="relative z-10 mt-4 flex flex-wrap gap-2">
 						{#each post.tags as tag}
 							<span
-								class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-lime-600 dark:bg-zinc-800 dark:text-lime-400"
+								class="rounded bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-lime-600 dark:bg-zinc-800 dark:text-lime-400"
 							>
 								{tag}
 							</span>
