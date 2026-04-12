@@ -25,7 +25,7 @@
 			<div class="flex items-center gap-4">
 				<a
 					href="/"
-					class="text-2xl font-bold font-caveat tracking-tight sm:text-3xl"
+					class="text-2xl font-bold font-caveat tracking-tight sm:text-3xl transition-colors hover:text-lime-600 dark:hover:text-lime-400"
 				>
 					Catatan Kecil Ku
 				</a>
@@ -33,7 +33,7 @@
 			<div class="flex items-center gap-2 sm:gap-4">
 				<div class="relative w-full max-w-[140px] sm:max-w-xs">
 					<Search
-						class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500"
+						class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-lime-600 dark:text-lime-400"
 					/>
 					<input
 						type="text"
@@ -56,7 +56,7 @@
 			<div class="flex items-center justify-between">
 				<a
 					href="/about"
-					class="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+					class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
 					>About</a
 				>
 				<div class="sm:hidden">
@@ -72,7 +72,7 @@
 
 	<footer class="mt-20 border-t border-zinc-200 py-6 dark:border-zinc-800">
 		<div
-			class="mx-auto max-w-5xl px-4 text-center text-zinc-500 dark:text-zinc-400"
+			class="mx-auto max-w-5xl px-4 text-center text-lime-600 dark:text-lime-400"
 		>
 			<p class="font-sans text-sm">
 				&copy; {new Date().getFullYear()} Catatan Kecil Ku

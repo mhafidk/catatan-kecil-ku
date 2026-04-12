@@ -5,7 +5,7 @@
 <div class="flex flex-col gap-8 grow">
 	<header class="text-center">
 		<h1 class="font-caveat text-5xl font-bold sm:text-6xl">About</h1>
-		<p class="mt-4 text-zinc-700 dark:text-zinc-400">
+		<p class="mt-4 text-lime-600 dark:text-lime-400">
 			Sedikit tentang saya dan blog ini.
 		</p>
 	</header>

@@ -8,7 +8,8 @@
 
 	onMount(() => {
 		if (data.posts.length > 0) {
-			randomPost = data.posts[Math.floor(Math.random() * data.posts.length)];
+			randomPost =
+				data.posts[Math.floor(Math.random() * data.posts.length)];
 		}
 	});
 
@@ -55,19 +56,22 @@
 				<h2
 					class="mt-2 text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 text-center mb-12"
 				>
-					<a href="/post/{randomPost.slug}" class="hover:underline">
+					<a
+						href="/post/{randomPost.slug}"
+						class="transition-colors hover:text-lime-600 dark:hover:text-lime-400"
+					>
 						{randomPost.title}
 					</a>
 				</h2>
 				<div
-					class="prose prose-zinc prose-black dark:prose-invert prose-headings:font-bold prose-a:text-black dark:prose-a:text-white prose-pre:bg-zinc-900 dark:prose-pre:bg-zinc-800 max-w-none text-center"
+					class="prose prose-zinc prose-black dark:prose-invert prose-headings:font-bold prose-pre:bg-zinc-900 dark:prose-pre:bg-zinc-800 max-w-none text-center"
 				>
 					{@html randomPost.content}
 				</div>
 				<div class="mt-6 flex flex-wrap gap-2 justify-center">
 					{#each randomPost.tags as tag}
 						<span
-							class="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-400"
+							class="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-lime-600 dark:bg-zinc-800 dark:text-lime-400"
 						>
 							{tag}
 						</span>
@@ -84,7 +88,7 @@
 				class="rounded-full px-3 py-1 text-xs font-medium transition-colors
           {selectedTags.includes(tag)
 					? 'bg-zinc-950 text-white dark:bg-white dark:text-zinc-900'
-					: 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'}"
+					: 'bg-zinc-100 text-lime-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-lime-400 dark:hover:bg-zinc-700'}"
 			>
 				{tag}
 			</button>
@@ -100,7 +104,10 @@
 					<h2
 						class="text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100"
 					>
-						<a href="/post/{post.slug}">
+						<a
+							class="transition-colors hover:text-lime-600 dark:hover:text-lime-400"
+							href="/post/{post.slug}"
+						>
 							<span
 								class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"
 							></span>
@@ -108,7 +115,7 @@
 						</a>
 					</h2>
 					<time
-						class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-500 dark:text-zinc-500"
+						class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-lime-600 dark:text-lime-400"
 					>
 						<span
 							class="absolute inset-y-0 left-0 flex items-center"
@@ -125,14 +132,14 @@
 						})}
 					</time>
 					<p
-						class="relative z-10 mt-2 text-sm text-zinc-700 dark:text-zinc-400"
+						class="relative z-10 mt-2 text-sm text-lime-600 dark:text-lime-400"
 					>
 						{post.description}
 					</p>
 					<div class="relative z-10 mt-4 flex flex-wrap gap-2">
 						{#each post.tags as tag}
 							<span
-								class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-400"
+								class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-lime-600 dark:bg-zinc-800 dark:text-lime-400"
 							>
 								{tag}
 							</span>
@@ -161,7 +168,7 @@
 			{/each}
 		{:else}
 			<div class="py-12 text-center">
-				<p class="text-zinc-500 dark:text-zinc-400">
+				<p class="text-lime-600 dark:text-lime-400">
 					Postingan tidak ditemukan.
 				</p>
 			</div>

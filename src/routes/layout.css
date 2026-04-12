@@ -36,3 +36,12 @@
 		font-family: var(--font-arabic);
 	}
 }
+
+@layer base {
+	a {
+		@apply transition-colors hover:text-lime-600 dark:hover:text-lime-400 no-underline;
+	}
+	.prose a {
+		@apply transition-colors hover:text-lime-600 dark:hover:text-lime-400 no-underline;
+	}
+}
