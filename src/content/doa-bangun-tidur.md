@@ -1,0 +1,19 @@
+---
+title: "Doa Bangun Tidur"
+date: "2026-04-12"
+description: "Doa bangun tidur."
+tags: ["doa"]
+arabic: true
+---
+
+<div dir="rtl" class="text-4xl sm:text-5xl font-arabic text-center" style="line-height: 2;">
+اَلْحَمْدُ لِلَّهِ الَّذِيْ أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُوْرِ
+</div>
+
+<div class="text-center" style="margin-top: 2rem; margin-bottom: 2rem;">
+"Segala puji bagi Allah, yang telah membangunkan kami setelah menidurkan kami dan kepada-Nya lah kami dibangkitkan."
+</div>
+
+<div class="text-center font-bold">
+(HR. Bukhari no. 6325)
+</div>

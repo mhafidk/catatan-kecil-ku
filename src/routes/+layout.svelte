@@ -4,17 +4,17 @@
 	import { Search } from "lucide-svelte";
 	import { searchState } from "$lib/search.svelte";
 	// @ts-ignore
-	import { pwaInfo } from 'virtual:pwa-info';
+	import { pwaInfo } from "virtual:pwa-info";
 
 	let { children } = $props();
 </script>
 
 <svelte:head>
-	{@html pwaInfo ? pwaInfo.webManifest.linkTag : ''}
+	{@html pwaInfo ? pwaInfo.webManifest.linkTag : ""}
 </svelte:head>
 
 <div
-	class="min-h-screen bg-background text-foreground transition-colors duration-300"
+	class="flex min-h-screen flex-col bg-background text-foreground transition-colors duration-300"
 >
 	<nav
 		class="sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80"
@@ -66,7 +66,7 @@
 		</div>
 	</div>
 
-	<main class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+	<main class="mx-auto flex flex-col flex-1 w-full max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
 		{@render children()}
 	</main>
 

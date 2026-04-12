@@ -35,24 +35,26 @@
 
 <div class="flex flex-col gap-8">
 	<header class="text-center">
-		<h1 class="font-caveat text-5xl font-bold sm:text-6xl">Blog</h1>
+		<h1 class="font-caveat text-3xl font-bold sm:text-4xl">
+			Doa Hari Ini!
+		</h1>
 		<p class="mt-4 text-zinc-700 dark:text-zinc-400">
 			Selamat datang di tempat saya berbagi ide.
 		</p>
 	</header>
 
 	<div class="flex flex-wrap gap-2">
-			{#each allTags as tag}
-				<button
-					onclick={() => toggleTag(tag)}
-					class="rounded-full px-3 py-1 text-xs font-medium transition-colors
+		{#each allTags as tag}
+			<button
+				onclick={() => toggleTag(tag)}
+				class="rounded-full px-3 py-1 text-xs font-medium transition-colors
           {selectedTags.includes(tag)
-						? 'bg-zinc-950 text-white dark:bg-white dark:text-zinc-900'
-						: 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'}"
-				>
-					{tag}
-				</button>
-			{/each}
+					? 'bg-zinc-950 text-white dark:bg-white dark:text-zinc-900'
+					: 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'}"
+			>
+				{tag}
+			</button>
+		{/each}
 	</div>
 
 	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
