@@ -2,7 +2,7 @@
 title: "Doa Bangun Tidur"
 date: "2026-04-12"
 description: "Doa bangun tidur."
-tags: ["doa"]
+tags: ["tidur", "doa"]
 arabic: true
 ---
 

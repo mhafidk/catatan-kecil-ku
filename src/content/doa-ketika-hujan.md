@@ -2,7 +2,7 @@
 title: "Doa Ketika Hujan"
 date: "2026-04-12"
 description: "Doa ketika hujan."
-tags: ["doa"]
+tags: ["doa", "hujan"]
 arabic: true
 ---
 

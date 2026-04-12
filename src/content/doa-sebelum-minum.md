@@ -1,7 +1,7 @@
 ---
-title: "Doa Sebelum Makan"
+title: "Doa Sebelum Minum"
 date: "2026-04-12"
-description: "Doa sebelum makan."
+description: "Doa sebelum minum."
 tags: ["doa", "makan"]
 arabic: true
 ---
