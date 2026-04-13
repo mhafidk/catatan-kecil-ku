@@ -20,6 +20,10 @@
 			question: "Bagaimana cara mencari doa tertentu?",
 			answer: "Anda dapat menggunakan kotak pencarian (ikon kaca pembesar) di menu navigasi atas untuk mencari berdasarkan judul doa atau dzikir.",
 		},
+		{
+			question: "Ada saran, masukkan, atau kritik?",
+			answer: "Saya sangat terbukan dengan saran, masukkan, dan kritik dari Anda, silakan sampaikan ke <a href='mailto:mhafidk@gmail.com' class='text-lime-600 dark:text-lime-400 hover:underline transition-colors'>mhafidk@gmail.com</a>.",
+		},
 	];
 </script>
 
