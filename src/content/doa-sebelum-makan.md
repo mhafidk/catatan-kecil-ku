@@ -15,5 +15,5 @@ arabic: true
 </div>
 
 <div class="text-center">
-Berdasarkan hadits riwayat Bukhari no. <span class="font-bold">5376</span> dan Muslim no. <span class="font-bold">2022</span>
+HR. Bukhari no. <span class="font-bold">5376</span> dan Muslim no. <span class="font-bold">2022</span>
 </div>

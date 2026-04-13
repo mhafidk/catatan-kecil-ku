@@ -15,5 +15,5 @@ arabic: true
 </div>
 
 <div class="text-center font-bold">
-Berdasarkan hadits riwayat Bukhari no. <span class="font-bold">2993</span>
+HR. Bukhari no. <span class="font-bold">2993</span>
 </div>
