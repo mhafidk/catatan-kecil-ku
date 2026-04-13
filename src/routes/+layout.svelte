@@ -55,7 +55,7 @@
 						aria-label="Cari"
 						class="hidden sm:flex items-center justify-center rounded bg-zinc-900 px-2 py-1.5 text-white dark:bg-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
 					>
-						<Search class="h-4 w-4" />
+						<Search class="h-full w-full" />
 					</button>
 				</form>
 
@@ -87,7 +87,11 @@
 						class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
 						>Dzikir</a
 					>
-
+					<a
+						href="/#faq"
+						class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
+						>FAQ</a
+					>
 					<a
 						href="/about"
 						class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
