@@ -1,26 +1,16 @@
-# sv
+# Catatan Kecilku (My Little Notes)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A personal blog application built with SvelteKit to collect and share daily prayers and supplications (Doa & Dzikir).
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-bun x sv@0.15.1 create --template minimal --types ts --add tailwindcss="plugins:typography" sveltekit-adapter="adapter:static" --install bun .
-```
+## Tech Stack
+- **Framework:** [SvelteKit](https://kit.svelte.dev/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Content:** Markdown
+- **Deployment:** [Netlify](https://www.netlify.com/) (using `@sveltejs/adapter-static`)
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've installed dependencies with `npm install` (or `bun install`, `pnpm install`, `yarn`), start a development server:
 
 ```sh
 npm run dev
@@ -38,5 +28,3 @@ npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
