@@ -192,10 +192,10 @@
             class="pt-8 border-t border-zinc-200 dark:border-zinc-800 text-center"
         >
             <a
-                href="{base}/faq"
+                href="/"
                 class="text-lime-600 dark:text-lime-400 hover:underline font-medium"
             >
-                ← Kembali ke FAQ
+                ← Kembali ke beranda
             </a>
         </div>
     </div>
