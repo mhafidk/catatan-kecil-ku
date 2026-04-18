@@ -17,7 +17,7 @@
 		}
 	});
 
-	let filteredPosts = $derived(data.posts.slice(0, 6));
+	let filteredPosts = $derived(data.posts.slice(0, 8));
 
 	let allTags = $derived([
 		...new Set(data.posts.flatMap((p: any) => p.tags)),
