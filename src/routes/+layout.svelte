@@ -10,6 +10,7 @@
 	let { children } = $props();
 
 	let menuOpen = $state(false);
+	let navElement: HTMLElement;
 
 	function toggleMenu() {
 		menuOpen = !menuOpen;
@@ -18,7 +19,16 @@
 	function closeMenu() {
 		menuOpen = false;
 	}
+
+	function handleOutsideClick(e: MouseEvent) {
+		const target = e.target as Node;
+		if (menuOpen && navElement && !navElement.contains(target) && target.isConnected) {
+			closeMenu();
+		}
+	}
 </script>
+
+<svelte:window onclick={handleOutsideClick} />
 
 <svelte:head>
 	{@html pwaInfo ? pwaInfo.webManifest.linkTag : ""}
@@ -28,6 +38,7 @@
 	class="flex min-h-screen flex-col bg-background text-foreground transition-colors duration-300"
 >
 	<nav
+		bind:this={navElement}
 		class="relative sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80"
 	>
 		<div

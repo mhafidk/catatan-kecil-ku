@@ -25,7 +25,9 @@
 		</div>
 	</header>
 
-	<div class="prose prose-zinc prose-black mt-12 dark:prose-invert prose-headings:font-bold prose-pre:bg-zinc-900 dark:prose-pre:bg-zinc-800 max-w-none">
+	<div
+		class="prose prose-zinc prose-black mt-12 dark:prose-invert prose-headings:font-bold prose-pre:bg-zinc-900 dark:prose-pre:bg-zinc-800 max-w-none"
+	>
 		{@html data.post.content}
 	</div>
 </article>
