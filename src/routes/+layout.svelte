@@ -58,7 +58,7 @@
 >
 	<nav
 		bind:this={navElement}
-		class="relative sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80 transition-transform duration-300 {navbarHidden
+		class="sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80 transition-transform duration-300 {navbarHidden
 			? '-translate-y-full'
 			: 'translate-y-0'}"
 	>
