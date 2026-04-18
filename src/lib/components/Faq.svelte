@@ -2,7 +2,7 @@
 	const faqs = [
 		{
 			question: "Apa itu aplikasi Catatan Kecil Ku?",
-			answer: "Aplikasi ini adalah kumpulan catatan kecil berisi doa-doa pendek dan dzikir harian. Didesain dengan antarmuka yang minimalist agar mudah dibaca.",
+			answer: "Aplikasi ini adalah kumpulan catatan kecil berisi doa-doa pendek dan dzikir harian. Didesain dengan antarmuka yang minimalis agar mudah dibaca.",
 		},
 		{
 			question: "Kenapa aplikasi Catatan Kecil Ku dibuat?",

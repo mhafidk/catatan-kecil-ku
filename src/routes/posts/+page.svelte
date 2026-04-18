@@ -7,7 +7,7 @@
 	let { data } = $props();
 
 	let tagFilter = $state<string | null>(null);
-	
+
 	$effect(() => {
 		tagFilter = $page.url.searchParams.get("tag");
 	});
@@ -45,8 +45,8 @@
 	let paginatedPosts = $derived(
 		filteredPosts.slice(
 			(currentPage - 1) * POSTS_PER_PAGE,
-			currentPage * POSTS_PER_PAGE
-		)
+			currentPage * POSTS_PER_PAGE,
+		),
 	);
 
 	let totalPages = $derived(Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
@@ -88,7 +88,7 @@
 			{#each allTags as tag}
 				<a
 					href="/posts?tag={tag}"
-					class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-lime-600 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-lime-400 dark:hover:bg-zinc-700"
+					class="rounded bg-zinc-100 px-3 py-1 text-xs font-medium text-lime-600 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-lime-400 dark:hover:bg-zinc-700"
 				>
 					{tag}
 				</a>
@@ -130,7 +130,8 @@
 							currentPage = pageNum;
 							window.scrollTo(0, 0);
 						}}
-						class="rounded px-3 py-2 text-sm transition-colors {currentPage === pageNum
+						class="rounded px-3 py-2 text-sm transition-colors {currentPage ===
+						pageNum
 							? 'bg-lime-600 text-white hover:bg-lime-700 dark:bg-lime-600 dark:hover:bg-lime-700'
 							: 'hover:bg-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-800'}"
 					>
