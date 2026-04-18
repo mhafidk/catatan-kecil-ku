@@ -21,17 +21,17 @@ export default defineConfig({
 				background_color: '#ffffff',
 				icons: [
 					{
-						src: 'ckk-logo-white.webp',
+						src: 'catatan-kecil-ku.webp',
 						sizes: '192x192',
 						type: 'image/webp'
 					},
 					{
-						src: 'ckk-logo-white.webp',
+						src: 'catatan-kecil-ku.webp',
 						sizes: '512x512',
 						type: 'image/webp'
 					},
 					{
-						src: 'ckk-logo-white.webp',
+						src: 'catatan-kecil-ku.webp',
 						sizes: '512x512',
 						type: 'image/webp',
 						purpose: 'any maskable'
