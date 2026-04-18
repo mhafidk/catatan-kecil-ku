@@ -21,19 +21,19 @@ export default defineConfig({
 				background_color: '#ffffff',
 				icons: [
 					{
-						src: 'pwa-192x192.png',
+						src: 'ckk-logo-white.webp',
 						sizes: '192x192',
-						type: 'image/png'
+						type: 'image/webp'
 					},
 					{
-						src: 'pwa-512x512.png',
+						src: 'ckk-logo-white.webp',
 						sizes: '512x512',
-						type: 'image/png'
+						type: 'image/webp'
 					},
 					{
-						src: 'pwa-512x512.png',
+						src: 'ckk-logo-white.webp',
 						sizes: '512x512',
-						type: 'image/png',
+						type: 'image/webp',
 						purpose: 'any maskable'
 					}
 				],

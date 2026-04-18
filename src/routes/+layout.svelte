@@ -22,7 +22,12 @@
 
 	function handleOutsideClick(e: MouseEvent) {
 		const target = e.target as Node;
-		if (menuOpen && navElement && !navElement.contains(target) && target.isConnected) {
+		if (
+			menuOpen &&
+			navElement &&
+			!navElement.contains(target) &&
+			target.isConnected
+		) {
 			closeMenu();
 		}
 	}
@@ -53,7 +58,9 @@
 >
 	<nav
 		bind:this={navElement}
-		class="relative sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80 transition-transform duration-300 {navbarHidden ? '-translate-y-full' : 'translate-y-0'}"
+		class="relative sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80 transition-transform duration-300 {navbarHidden
+			? '-translate-y-full'
+			: 'translate-y-0'}"
 	>
 		<div
 			class="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8"
@@ -63,7 +70,7 @@
 				<a
 					href="/"
 					onclick={closeMenu}
-					class="text-2xl font-bold font-caveat tracking-tight sm:text-3xl transition-colors hover:text-lime-600 dark:hover:text-lime-400"
+					class="flex items-center gap-2 text-2xl font-bold font-caveat tracking-tight sm:text-3xl transition-colors hover:text-lime-600 dark:hover:text-lime-400"
 				>
 					Catatan Kecil Ku
 				</a>
