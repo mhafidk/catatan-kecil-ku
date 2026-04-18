@@ -24,10 +24,6 @@
 	]);
 </script>
 
-<svelte:head>
-	<title>Home | Catatan Kecil Ku</title>
-</svelte:head>
-
 <div class="flex flex-col gap-6">
 	<header class="flex flex-col mb-12">
 		<h1 class="font-caveat text-3xl font-bold sm:text-4xl text-center mb-8">
@@ -51,6 +47,14 @@
 					class="prose prose-zinc prose-black dark:prose-invert prose-headings:font-bold prose-pre:bg-zinc-900 dark:prose-pre:bg-zinc-800 max-w-none text-center"
 				>
 					{@html randomPost.content}
+				</div>
+				<div class="mt-4 flex justify-center">
+					<a
+						href="/post/{randomPost.slug}"
+						class="text-sm font-medium text-lime-600 hover:text-lime-700 dark:text-lime-400 dark:hover:text-lime-300"
+					>
+						Selengkapnya &rarr;
+					</a>
 				</div>
 				<div class="mt-6 flex flex-wrap gap-2 justify-center">
 					{#each randomPost.tags as tag}

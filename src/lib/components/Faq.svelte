@@ -25,7 +25,26 @@
 			answer: "Saya sangat terbukan dengan saran, masukkan, dan kritik dari Anda, silakan sampaikan ke <a href='mailto:mhafidk@gmail.com' class='text-lime-600 dark:text-lime-400 hover:underline transition-colors'>mhafidk@gmail.com</a>.",
 		},
 	];
+
+	const faqSchema = {
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": faqs.map((faq) => ({
+			"@type": "Question",
+			"name": faq.question,
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": faq.answer.replace(/<[^>]*>?/gm, ""), // Strip HTML tags for schema
+			},
+		})),
+	};
 </script>
+
+<svelte:head>
+	<script type="application/ld+json">
+		{@html JSON.stringify(faqSchema)}
+	</script>
+</svelte:head>
 
 <div class="max-w-3xl mx-auto py-8 w-full">
 	<div class="mb-10 text-center">

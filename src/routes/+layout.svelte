@@ -4,6 +4,7 @@
 	import { Search, Menu, X } from "lucide-svelte";
 	import { searchState } from "$lib/search.svelte";
 	import { goto } from "$app/navigation";
+	import { page } from "$app/state";
 	// @ts-ignore
 	import { pwaInfo } from "virtual:pwa-info";
 
@@ -51,6 +52,16 @@
 
 <svelte:head>
 	{@html pwaInfo ? pwaInfo.webManifest.linkTag : ""}
+	<title>{page.data.post?.title ? `${page.data.post.title} | Catatan Kecil Ku` : page.data.title ? `${page.data.title} | Catatan Kecil Ku` : 'Catatan Kecil Ku - Kumpulan Doa & Dzikir Harian'}</title>
+	<meta name="description" content={page.data.post?.description || page.data.description || "Kumpulan doa dan dzikir harian untuk umat Islam. Temukan berbagai doa sesuai kebutuhan Anda di Catatan Kecil Ku."} />
+	<meta property="og:title" content={page.data.post?.title ? `${page.data.post.title} | Catatan Kecil Ku` : page.data.title ? `${page.data.title} | Catatan Kecil Ku` : 'Catatan Kecil Ku - Kumpulan Doa & Dzikir Harian'} />
+	<meta property="og:description" content={page.data.post?.description || page.data.description || "Kumpulan doa dan dzikir harian untuk umat Islam. Temukan berbagai doa sesuai kebutuhan Anda di Catatan Kecil Ku."} />
+	<meta property="og:type" content={page.data.post ? 'article' : 'website'} />
+	<meta property="og:site_name" content="Catatan Kecil Ku" />
+	<meta property="og:url" content="https://www.catatankecilku.com{page.url.pathname}" />
+	<meta property="og:image" content="https://www.catatankecilku.com/catatan-kecil-ku.webp" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<link rel="canonical" href="https://www.catatankecilku.com{page.url.pathname}" />
 </svelte:head>
 
 <div

@@ -5,6 +5,40 @@
 <svelte:head>
 	<title>{data.post.title} | Catatan Kecil Ku</title>
 	<meta name="description" content={data.post.description} />
+	<meta property="og:title" content="{data.post.title} | Catatan Kecil Ku" />
+	<meta property="og:description" content={data.post.description} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://www.catatankecilku.com/post/{data.post.slug}" />
+	<meta property="og:article:published_time" content={data.post.date} />
+	{#each data.post.tags as tag}
+		<meta property="og:article:tag" content={tag} />
+	{/each}
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": "{data.post.title}",
+			"description": "{data.post.description}",
+			"datePublished": "{data.post.date}",
+			"author": {
+				"@type": "Person",
+				"name": "Catatan Kecil Ku"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "Catatan Kecil Ku",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://www.catatankecilku.com/catatan-kecil-ku.webp"
+				}
+			},
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": "https://www.catatankecilku.com/post/{data.post.slug}"
+			}
+		}
+	</script>
 </svelte:head>
 
 <article class="mx-auto max-w-2xl overflow-hidden my-auto w-full">

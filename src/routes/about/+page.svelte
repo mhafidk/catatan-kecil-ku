@@ -1,7 +1,3 @@
-<svelte:head>
-	<title>About | Catatan Kecil Ku</title>
-</svelte:head>
-
 <div class="flex flex-col gap-8 grow">
 	<header class="text-center">
 		<h1 class="font-caveat text-5xl font-bold sm:text-6xl">About</h1>
