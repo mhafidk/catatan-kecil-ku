@@ -103,7 +103,7 @@
 		{/each}
 	</div>
 
-	<div class="grid gap-6 sm:grid-cols-2">
+	<div class="grid gap-4 sm:grid-cols-2">
 		{#if filteredPosts.length > 0}
 			{#each filteredPosts as post}
 				<PostCard {post} />

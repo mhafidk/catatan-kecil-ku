@@ -63,57 +63,14 @@
 
 				<!-- Desktop: search + theme toggle -->
 				<div class="hidden sm:flex items-center gap-4">
-				<form
-					onsubmit={(e) => {
-						e.preventDefault();
-						goto("/posts");
-					}}
-					class="relative flex items-center gap-2 w-full max-w-sm"
-				>
-					<div class="relative w-full">
-						<Search
-							class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-lime-600 dark:text-lime-400"
-						/>
-						<input
-							type="text"
-							placeholder="Cari..."
-							bind:value={searchState.query}
-							class="w-full rounded border border-zinc-300 bg-white py-1.5 pl-9 pr-4 text-sm focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900"
-						/>
-					</div>
-					<button
-						type="submit"
-						aria-label="Cari"
-						class="flex items-center justify-center rounded bg-zinc-900 px-2 py-1.5 text-white dark:bg-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
-					>
-						<Search class="h-4 w-4" />
-					</button>
-				</form>
-
-				<!-- Theme toggle — desktop only -->
-				<div class="hidden sm:block">
-					<ThemeToggle />
-				</div>
-			</div>
-		</div>
-
-		<!-- Mobile dropdown menu -->
-		{#if menuOpen}
-			<div
-				id="mobile-menu"
-				class="sm:hidden absolute top-full left-0 w-full border-t border-zinc-200 bg-white/95 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/95 shadow-lg"
-			>
-				<div class="mx-auto max-w-5xl px-4 py-3 flex flex-col gap-1">
-					<!-- Search bar inside mobile menu -->
 					<form
 						onsubmit={(e) => {
 							e.preventDefault();
-							closeMenu();
 							goto("/posts");
 						}}
-						class="relative flex items-center gap-2 mb-2"
+						class="relative flex items-center gap-2 w-full max-w-sm"
 					>
-						<div class="relative flex-1">
+						<div class="relative w-full">
 							<Search
 								class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-lime-600 dark:text-lime-400"
 							/>
@@ -121,58 +78,106 @@
 								type="text"
 								placeholder="Cari..."
 								bind:value={searchState.query}
-								class="w-full rounded border border-zinc-300 bg-white py-2 pl-9 pr-4 text-sm focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900"
+								class="w-full rounded border border-zinc-300 bg-white py-1.5 pl-9 pr-4 text-sm focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900"
 							/>
 						</div>
 						<button
 							type="submit"
 							aria-label="Cari"
-							class="flex items-center justify-center rounded bg-zinc-900 px-3 py-2 text-white dark:bg-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+							class="flex items-center justify-center rounded bg-zinc-900 px-2 py-1.5 text-white dark:bg-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
 						>
 							<Search class="h-4 w-4" />
 						</button>
 					</form>
-					<div class="border-b border-zinc-100 dark:border-zinc-800 mb-1"></div>
-					<a
-						href="/"
-						onclick={closeMenu}
-						class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
-						>Home</a
-					>
-					<a
-						href="/posts?tag=doa"
-						onclick={closeMenu}
-						class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
-						>Doa</a
-					>
-					<a
-						href="/posts?tag=dzikir"
-						onclick={closeMenu}
-						class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
-						>Dzikir</a
-					>
-					<a
-						href="/#faq"
-						onclick={closeMenu}
-						class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
-						>FAQ</a
-					>
-					<a
-						href="/about"
-						onclick={closeMenu}
-						class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
-						>About</a
-					>
 
-					<!-- Theme toggle inside mobile menu -->
-					<div
-						class="px-3 pt-2 pb-1 border-t border-zinc-100 dark:border-zinc-800 mt-1"
-					>
+					<!-- Theme toggle — desktop only -->
+					<div class="hidden sm:block">
 						<ThemeToggle />
 					</div>
 				</div>
 			</div>
-		{/if}
+
+			<!-- Mobile dropdown menu -->
+			{#if menuOpen}
+				<div
+					id="mobile-menu"
+					class="sm:hidden absolute top-full left-0 w-full border-t border-zinc-200 bg-white/95 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/95 shadow-lg"
+				>
+					<div
+						class="mx-auto max-w-5xl px-4 py-3 flex flex-col gap-1"
+					>
+						<!-- Search bar inside mobile menu -->
+						<form
+							onsubmit={(e) => {
+								e.preventDefault();
+								closeMenu();
+								goto("/posts");
+							}}
+							class="relative flex items-center gap-2 mb-2"
+						>
+							<div class="relative flex-1">
+								<Search
+									class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-lime-600 dark:text-lime-400"
+								/>
+								<input
+									type="text"
+									placeholder="Cari..."
+									bind:value={searchState.query}
+									class="w-full rounded border border-zinc-300 bg-white py-2 pl-9 pr-4 text-sm focus:border-zinc-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900"
+								/>
+							</div>
+							<button
+								type="submit"
+								aria-label="Cari"
+								class="flex items-center justify-center rounded bg-zinc-900 px-3 py-2 text-white dark:bg-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+							>
+								<Search class="h-4 w-4" />
+							</button>
+						</form>
+						<div
+							class="border-b border-zinc-100 dark:border-zinc-800 mb-1"
+						></div>
+						<a
+							href="/"
+							onclick={closeMenu}
+							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+							>Home</a
+						>
+						<a
+							href="/posts?tag=doa"
+							onclick={closeMenu}
+							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+							>Doa</a
+						>
+						<a
+							href="/posts?tag=dzikir"
+							onclick={closeMenu}
+							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+							>Dzikir</a
+						>
+						<a
+							href="/#faq"
+							onclick={closeMenu}
+							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+							>FAQ</a
+						>
+						<a
+							href="/about"
+							onclick={closeMenu}
+							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+							>About</a
+						>
+
+						<!-- Theme toggle inside mobile menu -->
+						<div
+							class="px-3 pt-2 pb-1 border-t border-zinc-100 dark:border-zinc-800 mt-1"
+						>
+							<ThemeToggle />
+						</div>
+					</div>
+				</div>
+			{/if}
+		</div>
 	</nav>
 
 	<!-- Desktop sub-nav (hidden on mobile) -->

@@ -3,7 +3,7 @@
 </script>
 
 <article
-	class="group relative flex flex-col items-start rounded border border-zinc-200 p-6 transition-all hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:hover:border-zinc-700"
+	class="group relative flex flex-col items-start rounded border border-zinc-200 bg-zinc-50 p-6 transition-all hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
 >
 	<h2
 		class="w-full text-center text-xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100"
