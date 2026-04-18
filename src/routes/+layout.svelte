@@ -26,9 +26,23 @@
 			closeMenu();
 		}
 	}
+
+	let lastScrollY = 0;
+	let navbarHidden = $state(false);
+
+	function handleScroll() {
+		const currentScrollY = window.scrollY;
+		if (currentScrollY > lastScrollY && currentScrollY > 64) {
+			navbarHidden = true;
+			if (menuOpen) closeMenu();
+		} else {
+			navbarHidden = false;
+		}
+		lastScrollY = currentScrollY;
+	}
 </script>
 
-<svelte:window onclick={handleOutsideClick} />
+<svelte:window onclick={handleOutsideClick} onscroll={handleScroll} />
 
 <svelte:head>
 	{@html pwaInfo ? pwaInfo.webManifest.linkTag : ""}
@@ -39,7 +53,7 @@
 >
 	<nav
 		bind:this={navElement}
-		class="relative sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80"
+		class="relative sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80 transition-transform duration-300 {navbarHidden ? '-translate-y-full' : 'translate-y-0'}"
 	>
 		<div
 			class="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8"
