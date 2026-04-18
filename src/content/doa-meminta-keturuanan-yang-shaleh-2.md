@@ -1,5 +1,5 @@
 ---
-title: "Doa Meminta Keturunan yang Shaleh/Shalehah - II"
+title: "Doa Meminta Keturunan yang Shaleh/Shalehah 2"
 date: "2026-04-12"
 description: "Doa meminta keturunan yang shaleh/shalehah."
 tags: ["doa", "anak", "al-quran"]
