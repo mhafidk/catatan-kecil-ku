@@ -11,6 +11,7 @@ export interface Post {
 	tags: string[];
 	content: string;
 	arabic?: boolean;
+	image?: string;
 }
 
 const CONTENT_DIR = path.resolve('src/content');
@@ -32,7 +33,8 @@ export async function getPosts(): Promise<Post[]> {
 				description: data.description,
 				tags: data.tags || [],
 				content: marked.parse(content) as string,
-				arabic: data.arabic || false
+				arabic: data.arabic || false,
+				image: data.image || ""
 			};
 		})
 		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
