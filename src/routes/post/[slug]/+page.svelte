@@ -75,7 +75,7 @@
 			onclick={() => history.back()}
 			class="rounded bg-white/10 px-8 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 backdrop-blur-md border border-white/10 shadow-sm"
 		>
-			&larr; Kembali
+			Kembali
 		</button>
 	</div>
 </article>
