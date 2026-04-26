@@ -1,6 +1,5 @@
 <script lang="ts">
 	import PostCard from "$lib/components/PostCard.svelte";
-	import Faq from "$lib/components/Faq.svelte";
 	import { searchState } from "$lib/search.svelte";
 	import { goto } from "$app/navigation";
 	import { onMount } from "svelte";
@@ -27,14 +26,14 @@
 <div class="flex flex-col gap-6">
 	<header class="flex flex-col mb-12">
 		<h1 class="font-caveat text-3xl font-bold sm:text-4xl text-center mb-8">
-			Doa Hari Ini!
+			Catatan Hari Ini!
 		</h1>
 		{#if randomPost}
 			<div
-				class="rounded border border-zinc-200 p-6 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 mx-auto w-full"
+				class="rounded border border-zinc-200 px-12 py-10 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 mx-auto w-full"
 			>
 				<h2
-					class="mt-2 text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 text-center mb-12"
+					class="mt-2 text-xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 text-center mb-12"
 				>
 					<a
 						href="/post/{randomPost.slug}"
@@ -70,7 +69,7 @@
 	</header>
 
 	<h2 class="font-caveat text-3xl font-bold sm:text-4xl text-center">
-		Mau doa apa hari ini?
+		Mau belajar apa hari ini?
 	</h2>
 
 	<form
@@ -128,9 +127,5 @@
 		>
 			Lebih banyak lagi
 		</a>
-	</div>
-
-	<div class="mt-12 w-full" id="faq">
-		<Faq />
 	</div>
 </div>

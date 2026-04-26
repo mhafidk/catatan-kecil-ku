@@ -6,7 +6,7 @@ tags: ["wudhu", "doa", "shalat"]
 arabic: true
 ---
 
-<div dir="rtl" class="text-4xl sm:text-5xl font-arabic text-center" style="line-height: 2;">
+<div dir="rtl" class="text-3xl sm:text-4xl font-arabic text-center" style="line-height: 2;">
 أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ اللَّهُمَّ اجْعَلْنِى مِنَ التَّوَّابِينَ وَاجْعَلْنِى مِنَ الْمُتَطَهِّرِينَ
 </div>
 

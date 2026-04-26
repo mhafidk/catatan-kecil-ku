@@ -6,7 +6,7 @@ tags: ["doa", "hujan"]
 arabic: true
 ---
 
-<div dir="rtl" class="text-4xl sm:text-5xl font-arabic text-center" style="line-height: 2;">
+<div dir="rtl" class="text-3xl sm:text-4xl font-arabic text-center" style="line-height: 2;">
 اللَّهُمَّ صَيِّباً نَافِعاً
 </div>
 

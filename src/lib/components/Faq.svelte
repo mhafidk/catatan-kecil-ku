@@ -29,12 +29,12 @@
 	const faqSchema = {
 		"@context": "https://schema.org",
 		"@type": "FAQPage",
-		"mainEntity": faqs.map((faq) => ({
+		mainEntity: faqs.map((faq) => ({
 			"@type": "Question",
-			"name": faq.question,
-			"acceptedAnswer": {
+			name: faq.question,
+			acceptedAnswer: {
 				"@type": "Answer",
-				"text": faq.answer.replace(/<[^>]*>?/gm, ""), // Strip HTML tags for schema
+				text: faq.answer.replace(/<[^>]*>?/gm, ""), // Strip HTML tags for schema
 			},
 		})),
 	};
@@ -46,15 +46,7 @@
 	</script>
 </svelte:head>
 
-<div class="max-w-3xl mx-auto py-8 w-full">
-	<div class="mb-10 text-center">
-		<h2
-			class="text-4xl font-bold font-caveat text-lime-600 dark:text-lime-400 mb-4"
-		>
-			FAQ
-		</h2>
-	</div>
-
+<div class="max-w-3xl mx-auto w-full">
 	<div class="space-y-4">
 		{#each faqs as faq}
 			<div

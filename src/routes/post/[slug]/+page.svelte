@@ -8,7 +8,10 @@
 	<meta property="og:title" content="{data.post.title} | Catatan Kecil Ku" />
 	<meta property="og:description" content={data.post.description} />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="https://www.catatankecilku.com/post/{data.post.slug}" />
+	<meta
+		property="og:url"
+		content="https://www.catatankecilku.com/post/{data.post.slug}"
+	/>
 	<meta property="og:article:published_time" content={data.post.date} />
 	{#each data.post.tags as tag}
 		<meta property="og:article:tag" content={tag} />
@@ -44,7 +47,7 @@
 <article class="mx-auto max-w-2xl overflow-hidden my-auto w-full">
 	<header class="flex flex-col">
 		<h1
-			class="mt-2 text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 sm:text-4xl text-center"
+			class="mt-2 text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 sm:text-3xl text-center"
 		>
 			{data.post.title}
 		</h1>

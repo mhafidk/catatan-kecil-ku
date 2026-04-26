@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-8 grow">
 	<header class="text-center">
-		<h1 class="font-caveat text-5xl font-bold sm:text-6xl">About</h1>
+		<h1 class="font-caveat text-3xl font-bold sm:text-4xl">About</h1>
 	</header>
 
 	<article class="prose prose-zinc mx-auto dark:prose-invert">

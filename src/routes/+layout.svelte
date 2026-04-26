@@ -52,16 +52,48 @@
 
 <svelte:head>
 	{@html pwaInfo ? pwaInfo.webManifest.linkTag : ""}
-	<title>{page.data.post?.title ? `${page.data.post.title} | Catatan Kecil Ku` : page.data.title ? `${page.data.title} | Catatan Kecil Ku` : 'Catatan Kecil Ku - Kumpulan Doa & Dzikir Harian'}</title>
-	<meta name="description" content={page.data.post?.description || page.data.description || "Kumpulan doa dan dzikir harian untuk umat Islam. Temukan berbagai doa sesuai kebutuhan Anda di Catatan Kecil Ku."} />
-	<meta property="og:title" content={page.data.post?.title ? `${page.data.post.title} | Catatan Kecil Ku` : page.data.title ? `${page.data.title} | Catatan Kecil Ku` : 'Catatan Kecil Ku - Kumpulan Doa & Dzikir Harian'} />
-	<meta property="og:description" content={page.data.post?.description || page.data.description || "Kumpulan doa dan dzikir harian untuk umat Islam. Temukan berbagai doa sesuai kebutuhan Anda di Catatan Kecil Ku."} />
-	<meta property="og:type" content={page.data.post ? 'article' : 'website'} />
+	<title
+		>{page.data.post?.title
+			? `${page.data.post.title} | Catatan Kecil Ku`
+			: page.data.title
+				? `${page.data.title} | Catatan Kecil Ku`
+				: "Catatan Kecil Ku - Kumpulan Doa & Dzikir Harian"}</title
+	>
+	<meta
+		name="description"
+		content={page.data.post?.description ||
+			page.data.description ||
+			"Kumpulan doa dan dzikir harian untuk umat Islam. Temukan berbagai doa sesuai kebutuhan Anda di Catatan Kecil Ku."}
+	/>
+	<meta
+		property="og:title"
+		content={page.data.post?.title
+			? `${page.data.post.title} | Catatan Kecil Ku`
+			: page.data.title
+				? `${page.data.title} | Catatan Kecil Ku`
+				: "Catatan Kecil Ku - Kumpulan Doa & Dzikir Harian"}
+	/>
+	<meta
+		property="og:description"
+		content={page.data.post?.description ||
+			page.data.description ||
+			"Kumpulan doa dan dzikir harian untuk umat Islam. Temukan berbagai doa sesuai kebutuhan Anda di Catatan Kecil Ku."}
+	/>
+	<meta property="og:type" content={page.data.post ? "article" : "website"} />
 	<meta property="og:site_name" content="Catatan Kecil Ku" />
-	<meta property="og:url" content="https://www.catatankecilku.com{page.url.pathname}" />
-	<meta property="og:image" content="https://www.catatankecilku.com/catatan-kecil-ku.webp" />
+	<meta
+		property="og:url"
+		content="https://www.catatankecilku.com{page.url.pathname}"
+	/>
+	<meta
+		property="og:image"
+		content="https://www.catatankecilku.com/catatan-kecil-ku.webp"
+	/>
 	<meta name="twitter:card" content="summary_large_image" />
-	<link rel="canonical" href="https://www.catatankecilku.com{page.url.pathname}" />
+	<link
+		rel="canonical"
+		href="https://www.catatankecilku.com{page.url.pathname}"
+	/>
 </svelte:head>
 
 <div
@@ -181,25 +213,13 @@
 							class="border-b border-zinc-100 dark:border-zinc-800 mb-1"
 						></div>
 						<a
-							href="/"
+							href="/posts"
 							onclick={closeMenu}
 							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
-							>Home</a
+							>Catatan</a
 						>
 						<a
-							href="/posts?tag=doa"
-							onclick={closeMenu}
-							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
-							>Doa</a
-						>
-						<a
-							href="/posts?tag=dzikir"
-							onclick={closeMenu}
-							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
-							>Dzikir</a
-						>
-						<a
-							href="/#faq"
+							href="/faq"
 							onclick={closeMenu}
 							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
 							>FAQ</a
@@ -230,22 +250,12 @@
 		<div class="mx-auto max-w-5xl px-4 pt-2 pb-2.5 sm:px-6 lg:px-8">
 			<div class="flex items-center gap-4">
 				<a
-					href="/"
+					href="/posts"
 					class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
-					>Home</a
+					>Catatan</a
 				>
 				<a
-					href="/posts?tag=doa"
-					class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
-					>Doa</a
-				>
-				<a
-					href="/posts?tag=dzikir"
-					class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
-					>Dzikir</a
-				>
-				<a
-					href="/#faq"
+					href="/faq"
 					class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
 					>FAQ</a
 				>
