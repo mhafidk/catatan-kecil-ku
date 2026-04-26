@@ -4,7 +4,7 @@ date: "2026-04-19"
 description: "Doa diberikan ilmu yang bermanfaat."
 tags: ["ilmu", "doa"]
 arabic: true
-image: ""
+image: "/study.webp"
 ---
 
 <div dir="rtl" class="text-3xl sm:text-4xl font-arabic text-center" style="line-height: 2;">

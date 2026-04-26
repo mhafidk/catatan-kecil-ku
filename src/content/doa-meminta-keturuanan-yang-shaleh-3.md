@@ -4,7 +4,7 @@ date: "2026-04-12"
 description: "Doa meminta keturunan yang shaleh/shalehah."
 tags: ["doa", "anak", "al-quran"]
 arabic: true
-image: ""
+image: "/children.webp"
 ---
 
 <div

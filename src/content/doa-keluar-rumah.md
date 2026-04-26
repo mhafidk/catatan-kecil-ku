@@ -4,7 +4,7 @@ date: "2026-04-12"
 description: "Doa keluar rumah."
 tags: ["rumah", "doa"]
 arabic: true
-image: ""
+image: "/home.webp"
 ---
 
 <div dir="rtl" class="text-3xl sm:text-4xl font-arabic text-center" style="line-height: 2;">
