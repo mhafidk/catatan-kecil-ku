@@ -44,29 +44,29 @@
 	</script>
 </svelte:head>
 
-<article class="mx-auto max-w-2xl overflow-hidden my-auto w-full">
-	<header class="flex flex-col">
-		<h1
-			class="mt-2 text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 sm:text-3xl text-center"
-		>
-			{data.post.title}
-		</h1>
-	</header>
-
-	<div
-		class="prose prose-zinc prose-black mt-12 dark:prose-invert prose-headings:font-bold prose-pre:bg-zinc-900 dark:prose-pre:bg-zinc-800 max-w-none"
-	>
-		{@html data.post.content}
-	</div>
-
-	<div class="mt-12 flex flex-wrap gap-2 justify-center">
-		{#each data.post.tags as tag}
-			<a
-				href="/posts?tag={tag}"
-				class="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-lime-400 dark:hover:bg-zinc-700"
+<article class="relative mx-auto max-w-2xl my-auto w-full px-6 py-10 sm:px-12">
+		<header class="flex flex-col">
+			<h1
+				class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl text-center"
 			>
-				{tag}
-			</a>
-		{/each}
-	</div>
+				{data.post.title}
+			</h1>
+		</header>
+
+		<div
+			class="prose prose-invert mt-12 prose-headings:font-bold prose-headings:text-white prose-strong:text-white prose-pre:bg-zinc-800/80 max-w-none text-white prose-p:text-white"
+		>
+			{@html data.post.content}
+		</div>
+
+		<div class="mt-12 flex flex-wrap gap-2 justify-center">
+			{#each data.post.tags as tag}
+				<a
+					href="/posts?tag={tag}"
+					class="rounded-full bg-zinc-950/50 px-3 py-1 text-sm font-medium text-lime-400 transition-colors hover:bg-black backdrop-blur-sm"
+				>
+					{tag}
+				</a>
+			{/each}
+		</div>
 </article>

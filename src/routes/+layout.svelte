@@ -97,14 +97,36 @@
 </svelte:head>
 
 <div
-	class="flex min-h-screen flex-col bg-background text-foreground transition-colors duration-300"
+	class="flex min-h-screen flex-col text-foreground transition-colors duration-300 {page
+		.data.post
+		? '!bg-transparent'
+		: 'bg-background'}"
 >
+	{#if page.data.post}
+		<div
+			class="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat blur-[3px] scale-105"
+			style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('{page
+				.data.post.image || '/mosque.webp'}');"
+		></div>
+	{/if}
 	<nav
 		bind:this={navElement}
-		class="sticky top-0 z-40 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80 transition-transform duration-300 {navbarHidden
+		class="sticky top-0 z-40 w-full transition-transform duration-300 {page
+			.data.post
+			? 'border-white/10 text-white'
+			: 'border-zinc-200 dark:border-zinc-800 text-zinc-950 dark:text-zinc-50'} {navbarHidden
 			? '-translate-y-full'
 			: 'translate-y-0'}"
 	>
+		<!-- Background layer for nav to isolate backdrop-filter -->
+		<div
+			class="absolute inset-0 -z-10 transition-all duration-300 {page.data.post
+				? (menuOpen
+					? 'bg-zinc-950/60 backdrop-blur-xl'
+					: 'bg-transparent sm:bg-zinc-950/60 sm:backdrop-blur-xl')
+				: 'bg-white/80 backdrop-blur-md dark:bg-zinc-950/80'}"
+		></div>
+
 		<div
 			class="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8"
 		>
@@ -124,7 +146,10 @@
 				<!-- Burger button — only visible on mobile -->
 				<button
 					id="burger-menu-btn"
-					class="sm:hidden flex items-center justify-center rounded p-1.5 text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-colors"
+					class="sm:hidden flex items-center justify-center rounded p-1.5 transition-colors {page
+						.data.post
+						? 'text-zinc-100 hover:bg-white/10'
+						: 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800'}"
 					aria-label="Toggle menu"
 					aria-expanded={menuOpen}
 					onclick={toggleMenu}
@@ -176,7 +201,10 @@
 			{#if menuOpen}
 				<div
 					id="mobile-menu"
-					class="sm:hidden absolute top-full left-0 w-full border-t border-zinc-200 bg-white/95 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/95 shadow-lg"
+					class="sm:hidden absolute top-full left-0 w-full border-t shadow-lg {page
+						.data.post
+						? 'bg-zinc-950/80 backdrop-blur-xl border-white/10'
+						: 'border-zinc-200 bg-white/95 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/95'}"
 				>
 					<div
 						class="mx-auto max-w-5xl px-4 py-3 flex flex-col gap-1"
@@ -210,30 +238,43 @@
 							</button>
 						</form>
 						<div
-							class="border-b border-zinc-100 dark:border-zinc-800 mb-1"
+							class="border-b mb-1 {page.data.post
+								? 'border-white/10'
+								: 'border-zinc-100 dark:border-zinc-800'}"
 						></div>
 						<a
 							href="/posts"
 							onclick={closeMenu}
-							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+							class="rounded px-3 py-2 text-sm font-medium transition-colors {page
+								.data.post
+								? 'text-lime-400 hover:bg-white/10 hover:text-white'
+								: 'text-lime-600 hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50'}"
 							>Catatan</a
 						>
 						<a
 							href="/faq"
 							onclick={closeMenu}
-							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+							class="rounded px-3 py-2 text-sm font-medium transition-colors {page
+								.data.post
+								? 'text-lime-400 hover:bg-white/10 hover:text-white'
+								: 'text-lime-600 hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50'}"
 							>FAQ</a
 						>
 						<a
 							href="/about"
 							onclick={closeMenu}
-							class="rounded px-3 py-2 text-sm font-medium text-lime-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+							class="rounded px-3 py-2 text-sm font-medium transition-colors {page
+								.data.post
+								? 'text-lime-400 hover:bg-white/10 hover:text-white'
+								: 'text-lime-600 hover:bg-zinc-100 hover:text-zinc-950 dark:text-lime-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-50'}"
 							>About</a
 						>
 
 						<!-- Theme toggle inside mobile menu -->
 						<div
-							class="px-3 pt-2 pb-1 border-t border-zinc-100 dark:border-zinc-800 mt-1"
+							class="px-3 pt-2 pb-1 border-t mt-1 {page.data.post
+								? 'border-white/10'
+								: 'border-zinc-100 dark:border-zinc-800'}"
 						>
 							<ThemeToggle />
 						</div>
@@ -245,7 +286,9 @@
 
 	<!-- Desktop sub-nav (hidden on mobile) -->
 	<div
-		class="hidden sm:block w-full border-b border-zinc-200 bg-white/50 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/50"
+		class="hidden sm:block w-full {page.data.post
+			? 'bg-zinc-950/10 backdrop-blur-lg border-white/10'
+			: 'border-zinc-200 bg-white/50 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/50'}"
 	>
 		<div class="mx-auto max-w-5xl px-4 pt-2 pb-2.5 sm:px-6 lg:px-8">
 			<div class="flex items-center gap-4">
@@ -274,7 +317,11 @@
 		{@render children()}
 	</main>
 
-	<footer class="mt-20 border-t border-zinc-200 py-6 dark:border-zinc-800">
+	<footer
+		class="mt-20 border-t py-6 {page.data.post
+			? 'border-transparent hidden sm:block'
+			: 'border-zinc-200 dark:border-zinc-800'}"
+	>
 		<div
 			class="mx-auto max-w-5xl px-4 text-center text-lime-600 dark:text-lime-400"
 		>
