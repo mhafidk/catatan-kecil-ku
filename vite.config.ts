@@ -15,8 +15,8 @@ export default defineConfig({
 			},
 			manifest: {
 				name: 'Catatan Kecil Ku',
-				short_name: 'Catatan',
-				description: 'Blog pribadi dengan catatan kecil sehari-hari',
+				short_name: 'Catatan Kecil Ku',
+				description: 'Catatan kecil untuk sehari-hari',
 				theme_color: '#ffffff',
 				background_color: '#ffffff',
 				icons: [
