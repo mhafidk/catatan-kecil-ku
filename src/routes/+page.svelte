@@ -30,39 +30,45 @@
 		</h1>
 		{#if randomPost}
 			<div
-				class="rounded border border-zinc-200 px-12 py-10 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 mx-auto w-full"
+				class="relative rounded border border-zinc-200 dark:border-zinc-800 mx-auto w-full overflow-hidden"
 			>
-				<h2
-					class="mt-2 text-xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100 text-center mb-12"
-				>
-					<a
-						href="/post/{randomPost.slug}"
-						class="transition-colors hover:text-lime-600 dark:hover:text-lime-400"
-					>
-						{randomPost.title}
-					</a>
-				</h2>
 				<div
-					class="prose prose-zinc prose-black dark:prose-invert prose-headings:font-bold prose-pre:bg-zinc-900 dark:prose-pre:bg-zinc-800 max-w-none text-center"
-				>
-					{@html randomPost.content}
-				</div>
-				<div class="mt-4 flex justify-center">
-					<a
-						href="/post/{randomPost.slug}"
-						class="text-sm font-medium text-lime-600 hover:text-lime-700 dark:text-lime-400 dark:hover:text-lime-300"
+					class="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[3px] scale-105"
+					style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('{randomPost.image || '/mosque.webp'}');"
+				></div>
+				<div class="relative z-10 px-12 py-10">
+					<h2
+						class="mt-2 text-xl font-bold tracking-tight text-white text-center mb-12"
 					>
-						Selengkapnya &rarr;
-					</a>
-				</div>
-				<div class="mt-6 flex flex-wrap gap-2 justify-center">
-					{#each randomPost.tags as tag}
-						<span
-							class="rounded bg-zinc-100 px-3 py-1 text-sm font-medium text-lime-600 dark:bg-zinc-800 dark:text-lime-400"
+						<a
+							href="/post/{randomPost.slug}"
+							class="transition-colors text-white hover:text-lime-400"
 						>
-							{tag}
-						</span>
-					{/each}
+							{randomPost.title}
+						</a>
+					</h2>
+					<div
+						class="prose prose-invert prose-headings:font-bold prose-headings:text-white prose-strong:text-white prose-pre:bg-zinc-800/80 max-w-none text-center text-white prose-p:text-white"
+					>
+						{@html randomPost.content}
+					</div>
+					<div class="mt-4 flex justify-center">
+						<a
+							href="/post/{randomPost.slug}"
+							class="text-sm font-medium text-lime-400 hover:text-lime-300"
+						>
+							Selengkapnya &rarr;
+						</a>
+					</div>
+					<div class="mt-6 flex flex-wrap gap-2 justify-center">
+						{#each randomPost.tags as tag}
+							<span
+								class="rounded bg-zinc-950/50 px-3 py-1 text-sm font-medium text-lime-400 backdrop-blur-sm"
+							>
+								{tag}
+							</span>
+						{/each}
+					</div>
 				</div>
 			</div>
 		{/if}

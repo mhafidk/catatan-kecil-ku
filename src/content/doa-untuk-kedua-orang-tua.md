@@ -4,6 +4,7 @@ date: "2026-04-12"
 description: "Doa untuk kedua orang tua."
 tags: ["doa", "orang tua", "al-quran"]
 arabic: true
+image: ""
 ---
 
 <div dir="rtl" class="text-3xl sm:text-4xl font-arabic text-center" style="line-height: 2;">

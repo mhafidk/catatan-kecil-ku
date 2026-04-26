@@ -4,6 +4,7 @@ date: "2026-04-19"
 description: "Doa meminta ampunan."
 tags: ["doa", "ampunan"]
 arabic: true
+image: ""
 ---
 
 <div dir="rtl" class="text-3xl sm:text-4xl font-arabic text-center" style="line-height: 2;">
