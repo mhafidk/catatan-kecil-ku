@@ -99,7 +99,7 @@
 <div
 	class="flex min-h-screen flex-col text-foreground transition-colors duration-300 {page
 		.data.post
-		? '!bg-transparent'
+		? 'bg-transparent!'
 		: 'bg-background'}"
 >
 	{#if page.data.post}
@@ -120,10 +120,11 @@
 	>
 		<!-- Background layer for nav to isolate backdrop-filter -->
 		<div
-			class="absolute inset-0 -z-10 transition-all duration-300 {page.data.post
-				? (menuOpen
+			class="absolute inset-0 -z-10 transition-all duration-300 {page.data
+				.post
+				? menuOpen
 					? 'bg-zinc-950/60 backdrop-blur-xl'
-					: 'bg-transparent sm:bg-zinc-950/60 sm:backdrop-blur-xl')
+					: 'bg-transparent sm:bg-zinc-950/60 sm:backdrop-blur-xl'
 				: 'bg-white/80 backdrop-blur-md dark:bg-zinc-950/80'}"
 		></div>
 
