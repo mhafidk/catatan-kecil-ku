@@ -104,7 +104,7 @@
 >
 	{#if page.data.post}
 		<div
-			class="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat blur-[3px] scale-105"
+			class="fixed top-0 left-0 w-full h-[100vh] z-[-1] bg-cover bg-center bg-no-repeat blur-[3px] scale-105"
 			style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('{page
 				.data.post.image || '/mosque.webp'}');"
 		></div>
