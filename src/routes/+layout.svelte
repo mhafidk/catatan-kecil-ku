@@ -3,12 +3,18 @@
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import { Search, Menu, X } from "lucide-svelte";
 	import { searchState } from "$lib/search.svelte";
-	import { goto } from "$app/navigation";
+	import { goto, afterNavigate } from "$app/navigation";
 	import { page } from "$app/state";
 	// @ts-ignore
 	import { pwaInfo } from "virtual:pwa-info";
 
 	let { children } = $props();
+
+	afterNavigate((navigation) => {
+		if (navigation.type !== "popstate" && !navigation.to?.url.hash) {
+			window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+		}
+	});
 
 	let menuOpen = $state(false);
 	let navElement: HTMLElement;
