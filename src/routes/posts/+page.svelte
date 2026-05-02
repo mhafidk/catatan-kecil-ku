@@ -65,6 +65,7 @@
 		<form
 			onsubmit={(e) => {
 				e.preventDefault();
+				searchState.reset();
 			}}
 			class="relative w-full flex gap-2 mx-auto"
 		>

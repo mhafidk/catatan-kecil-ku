@@ -14,6 +14,9 @@
 		if (navigation.type !== "popstate" && !navigation.to?.url.hash) {
 			window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 		}
+		if (!navigation.to?.url.pathname.startsWith("/posts")) {
+			searchState.reset();
+		}
 	});
 
 	let menuOpen = $state(false);
@@ -173,7 +176,11 @@
 					<form
 						onsubmit={(e) => {
 							e.preventDefault();
-							goto("/posts");
+							if (page.url.pathname.startsWith("/posts")) {
+								searchState.reset();
+							} else {
+								goto("/posts");
+							}
 						}}
 						class="relative flex items-center gap-2 w-full max-w-sm"
 					>
@@ -221,7 +228,11 @@
 							onsubmit={(e) => {
 								e.preventDefault();
 								closeMenu();
-								goto("/posts");
+								if (page.url.pathname.startsWith("/posts")) {
+									searchState.reset();
+								} else {
+									goto("/posts");
+								}
 							}}
 							class="relative flex items-center gap-2 mb-2"
 						>
@@ -251,7 +262,10 @@
 						></div>
 						<a
 							href="/posts"
-							onclick={closeMenu}
+							onclick={() => {
+								closeMenu();
+								searchState.reset();
+							}}
 							class="rounded px-3 py-2 text-sm font-medium transition-colors {page
 								.data.post
 								? 'text-lime-400 hover:bg-white/10 hover:text-white'
@@ -301,6 +315,7 @@
 			<div class="flex items-center gap-4">
 				<a
 					href="/posts"
+					onclick={() => searchState.reset()}
 					class="text-sm font-medium text-lime-600 transition-colors hover:text-zinc-950 dark:text-lime-400 dark:hover:text-zinc-50"
 					>Catatan</a
 				>

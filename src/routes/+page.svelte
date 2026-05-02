@@ -129,6 +129,7 @@
 	<div class="mt-4 flex justify-center">
 		<a
 			href="/posts"
+			onclick={() => searchState.reset()}
 			class="rounded bg-zinc-950 px-4 py-2 font-medium text-white text-sm transition-colors hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
 		>
 			Lebih banyak lagi
