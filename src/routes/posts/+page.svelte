@@ -1,16 +1,14 @@
 <script lang="ts">
 	import PostCard from "$lib/components/PostCard.svelte";
 	import { searchState } from "$lib/search.svelte";
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
+	import { browser } from "$app/environment";
 	import { Search } from "lucide-svelte";
+	import type { PageData } from "./$types";
 
-	let { data } = $props();
+	let { data }: { data: PageData } = $props();
 
-	let tagFilter = $state<string | null>(null);
-
-	$effect(() => {
-		tagFilter = $page.url.searchParams.get("tag");
-	});
+	let tagFilter = $derived(browser ? page.url.searchParams.get("tag") : null);
 
 	let filteredPosts = $derived(
 		data.posts.filter((post: any) => {
@@ -30,7 +28,7 @@
 	);
 
 	let allTags = $derived([
-		...new Set(data.posts.flatMap((p: any) => p.tags)),
+		...new Set(data.posts.flatMap((p: any) => p.tags as string[])),
 	]);
 
 	const POSTS_PER_PAGE = 10;

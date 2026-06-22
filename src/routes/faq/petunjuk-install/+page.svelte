@@ -1,14 +1,9 @@
 <script lang="ts">
     import { base } from "$app/paths";
-</script>
+    import type { PageData } from "./$types";
 
-<svelte:head>
-    <title>Petunjuk Install PWA - Catatan Kecil Ku</title>
-    <meta
-        name="description"
-        content="Cara menginstal aplikasi Catatan Kecil Ku di HP atau Komputer sebagai PWA."
-    />
-</svelte:head>
+    let { data }: { data: PageData } = $props();
+</script>
 
 <div class="max-w-3xl mx-auto pb-8 px-4 w-full">
     <div class="mb-10 text-center">

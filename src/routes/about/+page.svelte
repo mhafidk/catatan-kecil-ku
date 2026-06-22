@@ -1,3 +1,9 @@
+<script lang="ts">
+	import type { PageData } from "./$types";
+
+	let { data }: { data: PageData } = $props();
+</script>
+
 <div class="flex flex-col gap-8 grow">
 	<header class="text-center">
 		<h1 class="font-caveat text-3xl font-bold sm:text-4xl">About</h1>

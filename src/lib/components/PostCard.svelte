@@ -1,5 +1,7 @@
 <script lang="ts">
-	let { post } = $props();
+	import type { Post } from "$lib/types";
+
+	let { post }: { post: Post } = $props();
 </script>
 
 <article

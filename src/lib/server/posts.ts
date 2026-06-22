@@ -2,17 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import type { Post } from '$lib/types';
 
-export interface Post {
-	slug: string;
-	title: string;
-	date: string;
-	description: string;
-	tags: string[];
-	content: string;
-	arabic?: boolean;
-	image?: string;
-}
 
 const CONTENT_DIR = path.resolve('src/content');
 

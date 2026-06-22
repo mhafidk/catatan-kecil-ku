@@ -10,6 +10,8 @@ export async function GET() {
 		'',
 		'/posts',
 		'/about',
+		'/faq',
+		'/faq/petunjuk-install',
 		...allPosts.map((post) => `/post/${post.slug}`)
 	];
 

@@ -1,5 +1,8 @@
 <script lang="ts">
     import Faq from "$lib/components/Faq.svelte";
+    import type { PageData } from "./$types";
+
+    let { data }: { data: PageData } = $props();
 </script>
 
 <div class="flex flex-col gap-8 grow">

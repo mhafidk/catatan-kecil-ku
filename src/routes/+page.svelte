@@ -4,10 +4,12 @@
 	import { goto } from "$app/navigation";
 	import { onMount } from "svelte";
 	import { Search } from "lucide-svelte";
+	import type { PageData } from "./$types";
+	import type { Post } from "$lib/types";
 
-	let { data } = $props();
+	let { data }: { data: PageData } = $props();
 
-	let randomPost = $state<any>(null);
+	let randomPost = $state<Post | null>(null);
 
 	onMount(() => {
 		if (data.posts.length > 0) {
@@ -19,7 +21,7 @@
 	let filteredPosts = $derived(data.posts.slice(0, 8));
 
 	let allTags = $derived([
-		...new Set(data.posts.flatMap((p: any) => p.tags)),
+		...new Set(data.posts.flatMap((p: any) => p.tags as string[])),
 	]);
 </script>
 

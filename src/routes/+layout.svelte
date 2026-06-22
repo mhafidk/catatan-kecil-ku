@@ -8,7 +8,10 @@
 	// @ts-ignore
 	import { pwaInfo } from "virtual:pwa-info";
 
-	let { children } = $props();
+	import type { Snippet } from 'svelte';
+	import type { LayoutData } from './$types';
+
+	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 
 	afterNavigate((navigation) => {
 		if (navigation.type !== "popstate" && !navigation.to?.url.hash) {
