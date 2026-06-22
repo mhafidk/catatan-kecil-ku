@@ -112,22 +112,9 @@
   <!-- Tactile Noise Grain Overlay -->
   <div class="fixed inset-0 pointer-events-none z-50 bg-noise opacity-[0.02] sm:opacity-[0.035]"></div>
 
-  <!-- Ambient Light Orbs for depth (only shown when no active post background is active) -->
-  {#if !currentPost}
-    <div class="fixed top-[-8%] right-[-8%] w-[45vw] h-[45vw] sm:w-[65vh] sm:h-[65vh] rounded-full bg-lime-500/18 blur-[60px] sm:blur-[130px] pointer-events-none z-[-1]"></div>
-    <div class="fixed bottom-[-8%] left-[-8%] w-[55vw] h-[55vw] sm:w-[75vh] sm:h-[75vh] rounded-full bg-emerald-500/15 blur-[70px] sm:blur-[150px] pointer-events-none z-[-1]"></div>
-  {/if}
-
-  {#if currentPost}
-    {#key currentPost.slug}
-      <div
-        transition:fade={{ duration: 400 }}
-        class="fixed top-0 left-0 w-full h-[100vh] z-[-1] bg-cover bg-center bg-no-repeat blur-[3px] scale-105"
-        style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('{currentPost.image ||
-          '/mosque.webp'}');"
-      ></div>
-    {/key}
-  {/if}
+  <!-- Ambient Light Orbs for depth (rendered unconditionally on all pages) -->
+  <div class="fixed top-[-8%] right-[-8%] w-[45vw] h-[45vw] sm:w-[65vh] sm:h-[65vh] rounded-full bg-lime-500/18 blur-[60px] sm:blur-[130px] pointer-events-none z-[-1]"></div>
+  <div class="fixed bottom-[-8%] left-[-8%] w-[55vw] h-[55vw] sm:w-[75vh] sm:h-[75vh] rounded-full bg-emerald-500/15 blur-[70px] sm:blur-[150px] pointer-events-none z-[-1]"></div>
 
   <!-- Main Content Area with top breathing margin -->
   <div class="w-full max-w-2xl mx-auto flex-1 flex flex-col px-4 sm:px-6 pt-12">
