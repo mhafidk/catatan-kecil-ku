@@ -107,10 +107,17 @@
 </svelte:head>
 
 <div
-  class="flex min-h-screen flex-col text-foreground transition-colors duration-300 relative pb-28 {currentPost
-    ? 'bg-transparent!'
-    : 'bg-background'}"
+  class="flex min-h-screen flex-col text-foreground transition-colors duration-300 relative pb-28"
 >
+  <!-- Tactile Noise Grain Overlay -->
+  <div class="fixed inset-0 pointer-events-none z-50 bg-noise opacity-[0.02] sm:opacity-[0.035]"></div>
+
+  <!-- Ambient Light Orbs for depth (only shown when no active post background is active) -->
+  {#if !currentPost}
+    <div class="fixed top-[-8%] right-[-8%] w-[45vw] h-[45vw] sm:w-[65vh] sm:h-[65vh] rounded-full bg-lime-500/18 blur-[60px] sm:blur-[130px] pointer-events-none z-[-1]"></div>
+    <div class="fixed bottom-[-8%] left-[-8%] w-[55vw] h-[55vw] sm:w-[75vh] sm:h-[75vh] rounded-full bg-emerald-500/15 blur-[70px] sm:blur-[150px] pointer-events-none z-[-1]"></div>
+  {/if}
+
   {#if currentPost}
     {#key currentPost.slug}
       <div
@@ -315,3 +322,9 @@
     </div>
   </div>
 {/if}
+
+<style>
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+</style>

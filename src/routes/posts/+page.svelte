@@ -118,16 +118,22 @@
         onclick={() => (tagsExpanded = !tagsExpanded)}
         class="flex items-center justify-between w-full text-left group/btn focus:outline-none cursor-pointer"
       >
-        <span class="text-[10px] font-bold text-zinc-500 group-hover/btn:text-zinc-350 uppercase tracking-widest transition-colors flex items-center">
+        <span
+          class="text-[10px] font-bold text-zinc-500 group-hover/btn:text-zinc-350 uppercase tracking-widest transition-colors flex items-center"
+        >
           Kategori Pilihan
           {#if tagFilter}
-            <span class="text-[9px] lowercase tracking-normal text-lime-400 ml-2 bg-lime-950/40 px-2 py-0.5 rounded-full border border-lime-500/20">
+            <span
+              class="text-[9px] lowercase tracking-normal text-lime-400 ml-2 bg-lime-950/40 px-2 py-0.5 rounded-full border border-lime-500/20"
+            >
               #{tagFilter} aktif
             </span>
           {/if}
         </span>
         <ChevronDown
-          class="h-4 w-4 text-zinc-500 group-hover/btn:text-zinc-350 transition-transform duration-300 {tagsExpanded ? 'rotate-180' : ''}"
+          class="h-4 w-4 text-zinc-500 group-hover/btn:text-zinc-350 transition-transform duration-300 {tagsExpanded
+            ? 'rotate-180'
+            : ''}"
         />
       </button>
 
@@ -164,7 +170,7 @@
   </div>
 
   <!-- Cards list or grid -->
-  <div class="grid gap-4 sm:grid-cols-2">
+  <div class="grid gap-2 sm:grid-cols-2">
     {#if paginatedPosts.length > 0}
       {#each paginatedPosts as post}
         <PostCard {post} />
