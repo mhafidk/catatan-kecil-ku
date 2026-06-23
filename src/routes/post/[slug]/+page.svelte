@@ -35,7 +35,7 @@
         "name": "Catatan Kecil Ku",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.catatankecilku.com/catatan-kecil-ku.webp"
+          "url": "https://www.catatankecilku.com/catatan-kecil-ku.jpg"
         }
       },
       "mainEntityOfPage": {

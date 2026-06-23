@@ -97,7 +97,7 @@
   />
   <meta
     property="og:image"
-    content="https://www.catatankecilku.com/catatan-kecil-ku.webp"
+    content="https://www.catatankecilku.com/catatan-kecil-ku.jpg"
   />
   <meta name="twitter:card" content="summary_large_image" />
   <link
